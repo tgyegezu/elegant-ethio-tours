@@ -85,6 +85,8 @@ const Footer = () => {
               <li className="text-secondary-foreground/80">Gondar Castles</li>
               <li className="text-secondary-foreground/80">Simien Mountains</li>
               <li className="text-secondary-foreground/80">Axum Obelisks</li>
+              <li className="text-secondary-foreground/80">Lake Tana</li>
+              <li className="text-secondary-foreground/80">Danakil Depression</li>
             </ul>
           </div>
         </div>

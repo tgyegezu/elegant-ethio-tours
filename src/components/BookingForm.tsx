@@ -71,6 +71,8 @@ const BookingForm = () => {
                       <SelectItem value="gondar">Gondar</SelectItem>
                       <SelectItem value="simien">Simien Mountains</SelectItem>
                       <SelectItem value="axum">Axum</SelectItem>
+                      <SelectItem value="lake-tana">Lake Tana</SelectItem>
+                      <SelectItem value="danakil">Danakil Depression</SelectItem>
                       <SelectItem value="custom">Custom Tour</SelectItem>
                     </SelectContent>
                   </Select>

@@ -1,9 +1,13 @@
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  const { user, signOut } = useAuth();
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -45,9 +49,20 @@ const Navbar = () => {
             >
               Contact
             </button>
-            <Button variant="default" size="sm">
-              Admin Login
-            </Button>
+            {user ? (
+              <>
+                <Button variant="outline" size="sm" onClick={() => navigate("/admin")}>
+                  Dashboard
+                </Button>
+                <Button variant="ghost" size="sm" onClick={signOut}>
+                  Sign Out
+                </Button>
+              </>
+            ) : (
+              <Button variant="default" size="sm" onClick={() => navigate("/auth")}>
+                Admin Login
+              </Button>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -86,10 +101,37 @@ const Navbar = () => {
             >
               Contact
             </button>
-            <div className="px-4">
-              <Button variant="default" size="sm" className="w-full">
-                Admin Login
-              </Button>
+            <div className="px-4 space-y-2">
+              {user ? (
+                <>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="w-full"
+                    onClick={() => {
+                      navigate("/admin");
+                      setIsOpen(false);
+                    }}
+                  >
+                    Dashboard
+                  </Button>
+                  <Button variant="ghost" size="sm" className="w-full" onClick={signOut}>
+                    Sign Out
+                  </Button>
+                </>
+              ) : (
+                <Button
+                  variant="default"
+                  size="sm"
+                  className="w-full"
+                  onClick={() => {
+                    navigate("/auth");
+                    setIsOpen(false);
+                  }}
+                >
+                  Admin Login
+                </Button>
+              )}
             </div>
           </div>
         )}

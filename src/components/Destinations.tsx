@@ -1,10 +1,12 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MapPin, Clock, Users } from "lucide-react";
-import lalibela from "@/assets/destination-lalibela.jpg";
-import gondar from "@/assets/destination-gondar.jpg";
+import lalibela from "@/assets/destination-lalibela-real.jpg";
+import gondar from "@/assets/destination-gondar-real.jpg";
 import simien from "@/assets/destination-simien.jpg";
-import axum from "@/assets/destination-axum.jpg";
+import axum from "@/assets/destination-axum-real.jpg";
+import lakeTana from "@/assets/destination-lake-tana.jpg";
+import danakil from "@/assets/destination-danakil.jpg";
 
 const destinations = [
   {
@@ -43,6 +45,24 @@ const destinations = [
     groupSize: "4-12 people",
     price: "$549",
   },
+  {
+    id: 5,
+    name: "Lake Tana",
+    image: lakeTana,
+    description: "Cruise Ethiopia's largest lake and explore ancient island monasteries with stunning frescoes and manuscripts.",
+    duration: "2-3 days",
+    groupSize: "4-15 people",
+    price: "$699",
+  },
+  {
+    id: 6,
+    name: "Danakil Depression",
+    image: danakil,
+    description: "Experience one of Earth's most extreme landscapes with colorful sulfur springs, salt flats, and active volcanoes.",
+    duration: "4-5 days",
+    groupSize: "6-12 people",
+    price: "$1,499",
+  },
 ];
 
 const Destinations = () => {
@@ -59,11 +79,11 @@ const Destinations = () => {
             Iconic Destinations
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Journey through Ethiopia's most breathtaking historical and natural wonders
+            Discover six UNESCO World Heritage Sites and natural wonders across Ethiopia
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {destinations.map((destination) => (
             <Card
               key={destination.id}
